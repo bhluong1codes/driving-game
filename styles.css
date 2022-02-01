@@ -31,3 +31,26 @@ img {
     width: 100px;
   }
 }
+
+.north {
+  transform: rotate(-90deg);
+}
+
+.south {
+  transform: rotate(90deg);
+}
+
+.east {
+  transform: rotate(0);
+}
+
+.west {
+  transform: rotate(180deg);
+}
+
+.north,
+.south,
+.east,
+.west {
+  transition: transform 0.5s;
+}
