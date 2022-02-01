@@ -1,0 +1,33 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.arena {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-color: #288d26;
+}
+
+.car {
+  position: absolute;
+  width: 200px;
+}
+
+img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .car {
+    width: 100px;
+  }
+}
