@@ -1,5 +1,8 @@
 var car = {
-  orientation: 'east'
+  orientation: 'east',
+  carOn: false,
+  xCoordinates: 0,
+  yCoordinates: 0
 };
 
 var $car = document.querySelector('.car');
@@ -20,3 +23,18 @@ function changeDirection(event) {
 
   $car.className = 'car ' + car.orientation;
 }
+
+function startCar() {
+  setInterval(moveCar, 16);
+  function moveCar() {
+    car.xCoordinates += 10;
+    $car.style.left = car.xCoordinates + 'px';
+  }
+  car.carOn = true;
+}
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === ' ' && car.carOn === false) {
+    startCar();
+  }
+});
