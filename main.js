@@ -24,8 +24,10 @@ function changeDirection(event) {
   $car.className = 'car ' + car.orientation;
 }
 
+var intervalID;
+
 function startCar() {
-  setInterval(moveCar, 16);
+  intervalID = setInterval(moveCar, 16);
   function moveCar() {
     car.xCoordinates += 10;
     $car.style.left = car.xCoordinates + 'px';
@@ -33,8 +35,20 @@ function startCar() {
   car.carOn = true;
 }
 
+function stopCar() {
+  clearInterval(intervalID);
+  car.carOn = false;
+}
+
 document.addEventListener('keydown', function (event) {
-  if (event.key === ' ' && car.carOn === false) {
-    startCar();
+  if (event.key !== ' ') {
+    return;
   }
-});
+  if (car.carOn === false) {
+    startCar();
+  } else {
+    stopCar();
+  }
+}
+
+);
