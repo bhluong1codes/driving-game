@@ -29,8 +29,20 @@ var intervalID;
 function startCar() {
   intervalID = setInterval(moveCar, 16);
   function moveCar() {
-    car.xCoordinates += 10;
-    $car.style.left = car.xCoordinates + 'px';
+    if (car.orientation === 'east') {
+      car.xCoordinates += 10;
+      $car.style.left = car.xCoordinates + 'px';
+    } else if (car.orientation === 'west') {
+      car.xCoordinates -= 10;
+      $car.style.left = car.xCoordinates + 'px';
+    } else if (car.orientation === 'south') {
+      car.yCoordinates += 10;
+      $car.style.top = car.yCoordinates + 'px';
+    } else {
+      car.yCoordinates -= 10;
+      $car.style.top = car.yCoordinates + 'px';
+    }
+
   }
   car.carOn = true;
 }
